@@ -41,3 +41,15 @@ code {
 .ico {
     /* width: 2rem; */
 }
+.modal-okno {
+    position: absolute;
+    top: 25vh;
+    right: 25vw;
+    width: 35rem;
+    height: 25rem;
+    background: rgb(190, 189, 189);
+
+    text-align: center;
+    color: black;
+    box-shadow: 4px 4px 15px black;
+}
