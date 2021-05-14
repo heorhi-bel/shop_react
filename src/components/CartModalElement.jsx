@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+
+import { ShopContext } from "../context";
 
 function CartModalElement(props) {
     const {
@@ -10,7 +12,8 @@ function CartModalElement(props) {
         plusProduct = Function.prototype,
         minusProduct = Function.prototype,
     } = props;
-    const [] = useState(true);
+
+    const { exapmle } = useContext(ShopContext);
 
     return (
         <li className="collection-item">
