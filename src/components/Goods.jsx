@@ -1,7 +1,10 @@
 import Good from "./Good";
 
-function Goods(props) {
-    const { goods = [], addProduct = Function.prototype } = props;
+import { useContext } from "react";
+import { ShopContext } from "../context";
+
+function Goods() {
+    const { goods = [] } = useContext(ShopContext);
 
     if (!goods) {
         return <h3>Nothing here</h3>;
@@ -9,7 +12,7 @@ function Goods(props) {
     return (
         <div className="goods">
             {goods.map((item) => (
-                <Good key={item.mainId} {...item} addProduct={addProduct} />
+                <Good key={item.mainId} {...item} />
             ))}
         </div>
     );

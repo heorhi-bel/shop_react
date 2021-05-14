@@ -3,17 +3,11 @@ import { useState, useContext } from "react";
 import { ShopContext } from "../context";
 
 function CartModalElement(props) {
-    const {
-        mainId,
-        displayName,
-        price,
-        quantity,
-        deleteProduct = Function.prototype,
-        plusProduct = Function.prototype,
-        minusProduct = Function.prototype,
-    } = props;
+    const { mainId, displayName, price, quantity } = props;
 
-    const { exapmle } = useContext(ShopContext);
+    const { removeFromBasket, plusProduct, minusProduct } = useContext(
+        ShopContext
+    );
 
     return (
         <li className="collection-item">
@@ -35,7 +29,7 @@ function CartModalElement(props) {
             <span className="secodary-content">
                 <i
                     className="material-icons cart-delete right"
-                    onClick={() => deleteProduct(mainId)}
+                    onClick={() => removeFromBasket(mainId)}
                 >
                     close
                 </i>

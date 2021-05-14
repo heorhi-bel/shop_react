@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { ShopContext } from "../context";
+
 function Good(props) {
     const {
         mainId,
@@ -5,11 +8,9 @@ function Good(props) {
         displayDescription,
         price,
         displayAssets,
-        addProduct = Function.prototype,
     } = props;
 
-    // let priceOut = price.fianlPrice;
-    // console.log(priceOut + " --- " + price.finalPrice);
+    const { addProduct } = useContext(ShopContext);
 
     return (
         <div className="card large hoverable">

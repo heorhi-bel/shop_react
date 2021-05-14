@@ -13,7 +13,7 @@ export function reducer(state, {type, payload}){
         case 'PLUS_PRODUCT':
             return{
                 ...state,
-                order: order.map((el) => {
+                order: state.order.map((el) => {
                     if (el.mainId === payload.id) {
                         const newQuantity = el.quantity + 1;
                         return {
@@ -28,12 +28,12 @@ export function reducer(state, {type, payload}){
         case 'MINUS_PRODUCT':
             return{
                 ...state,
-                order: order.map((el) => {
+                order: state.order.map((el) => {
                     if (el.mainId === payload.id) {
                         const newQuantity = el.quantity - 1;
         
                         if (newQuantity <= 0) {
-                            deleteProduct(id);
+                            
                             return el;
                         } else {
                             return {
@@ -63,7 +63,7 @@ export function reducer(state, {type, payload}){
                 };
                 newOrder = [...state.order, newItem]
             } else {
-                const currentOrder = order.map((orderItem, index) => {
+                const currentOrder = state.order.map((orderItem, index) => {
                     if (index === itemIndex) {
                         return {
                             ...orderItem,
@@ -81,6 +81,12 @@ export function reducer(state, {type, payload}){
                 alertName: payload.name
             }
         }
+        case 'SET_GOODS':
+            return{
+                ...state,
+                goods: payload || [],
+                loading: false,
+            }
         default: 
             return state
     }

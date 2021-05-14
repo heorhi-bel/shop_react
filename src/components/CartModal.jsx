@@ -1,16 +1,14 @@
-import { useEffect } from "react";
+import { useState, useContext } from "react";
+
+import { ShopContext } from "../context";
+
 import CartModalElement from "./CartModalElement";
+import Shop from "./Shop";
 
 function CartModal(props) {
-    const {
-        order,
-        plus,
-        minus,
-        handleBasketShow = Function.prototype,
-        deleteProduct,
-        plusProduct,
-        minusProduct,
-    } = props;
+    const { order = [], handleBasketShow = Function.prototype } = useContext(
+        ShopContext
+    );
 
     const totalPrice = order.reduce((sum, el) => {
         return sum + el.price.finalPrice * el.quantity;
@@ -18,33 +16,6 @@ function CartModal(props) {
 
     return (
         <div className="modal-okno">
-            {/* <h3>Cart</h3>
-            {order.length ? (
-                order.map((item) => (
-                    <div key={item.mainId}>
-                        {item.displayName}
-                        <button
-                            classNameName="btn"
-                            onClick={() => minus(item.mainId)}
-                        >
-                            -
-                        </button>
-                        <strong style={{ fontSize: 1.5 + "rem" }}>
-                            {" "}
-                            {item.quantity}{" "}
-                        </strong>
-                        <button
-                            classNameName="btn"
-                            onClick={() => plus(item.mainId)}
-                        >
-                            +
-                        </button>
-                    </div>
-                ))
-            ) : (
-                <h3>Nothing</h3>
-            )} */}
-
             <ul className="collection cart-modal">
                 <i
                     className="material-icons ico-close right"
@@ -57,13 +28,7 @@ function CartModal(props) {
                 </li>
                 {order.length ? (
                     order.map((item) => (
-                        <CartModalElement
-                            key={item.mainId}
-                            {...item}
-                            deleteProduct={deleteProduct}
-                            plusProduct={plusProduct}
-                            minusProduct={minusProduct}
-                        />
+                        <CartModalElement key={item.mainId} {...item} />
                     ))
                 ) : (
                     <li className="collection-item ">Cart is empty</li>
