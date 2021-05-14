@@ -38,18 +38,28 @@ code {
     font-size: 16px;
 }
 
-.ico {
-    /* width: 2rem; */
-}
-.modal-okno {
-    position: absolute;
-    top: 25vh;
-    right: 25vw;
-    width: 35rem;
-    height: 25rem;
-    background: rgb(190, 189, 189);
+.ico-close {
+    position: relative;
+    top: 0.7rem;
+    right: 1.1rem;
 
-    text-align: center;
-    color: black;
-    box-shadow: 4px 4px 15px black;
+    transform: scale(1.5);
+    cursor: pointer;
+}
+.cart-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+
+    background-color: rgb(199, 199, 199);
+    width: 50rem;
+    max-width: 95%;
+
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.cart-delete {
+    cursor: pointer;
 }

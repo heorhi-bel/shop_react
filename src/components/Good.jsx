@@ -28,7 +28,7 @@ function Good(props) {
                     Get
                 </button>
                 <span className="right" style={{ fontSize: "1.5rem" }}>
-                    {price.finalPrice} RUB
+                    {price.finalPrice}$
                 </span>
             </div>
         </div>
