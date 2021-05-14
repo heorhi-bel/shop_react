@@ -37,17 +37,19 @@ function Shop() {
         }
     };
 
-    const deleteProduct = (item) => {
-        const itemIndex = order.findIndex(
-            (orderItem) => orderItem.mainId === item.mainId
-        );
+    const deleteProduct = (id) => {
+        // const itemIndex = order.findIndex(
+        //     (orderItem) => orderItem.mainId === id
+        // );
 
-        if (itemIndex >= 0) {
-            let array = [...order].slice(0, itemIndex);
-            let arraySec = [...order].slice(itemIndex + 1);
+        // if (itemIndex >= 0) {
+        //     let array = [...order].slice(0, itemIndex);
+        //     let arraySec = [...order].slice(itemIndex + 1);
 
-            setOrder([...array, ...arraySec]);
-        }
+        //     setOrder([...array, ...arraySec]);
+        // }
+        let newOrder = order.filter((el) => el.mainId !== id);
+        setOrder(newOrder);
     };
 
     const handleBasketShow = () => {

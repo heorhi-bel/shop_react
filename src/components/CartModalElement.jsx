@@ -16,7 +16,7 @@ function CartModalElement(props) {
             <span className="secodary-content">
                 <i
                     className="material-icons cart-delete right"
-                    onClick={() => deleteProduct({ mainId, displayName })}
+                    onClick={() => deleteProduct(mainId)}
                 >
                     close
                 </i>
