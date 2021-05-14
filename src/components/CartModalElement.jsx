@@ -16,14 +16,14 @@ function CartModalElement(props) {
         <li className="collection-item">
             {displayName}   
             <button
-                className="btn-small red lighten-2"
+                className="btn btn-small red lighten-2"
                 onClick={() => plusProduct(mainId)}
             >
                 +
             </button>{" "}
             x{quantity}{" "}
             <button
-                className="btn-small red lighten-2"
+                className="btn btn-small red lighten-2"
                 onClick={() => minusProduct(mainId)}
             >
                 -

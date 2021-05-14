@@ -52,7 +52,9 @@ function CartModal(props) {
                 >
                     close
                 </i>
-                <li className="collection-item active">Cart</li>
+                <li className="collection-item active deep-orange lighten-3">
+                    Cart
+                </li>
                 {order.length ? (
                     order.map((item) => (
                         <CartModalElement
@@ -66,7 +68,12 @@ function CartModal(props) {
                 ) : (
                     <li className="collection-item ">Cart is empty</li>
                 )}
-                <li className="collection-item">Total: {totalPrice}$</li>
+                <li className="collection-item">
+                    Total: {totalPrice}$
+                    <button className="btn btn-small right red lighten-1">
+                        buy
+                    </button>
+                </li>
             </ul>
         </div>
     );
