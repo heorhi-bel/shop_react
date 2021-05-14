@@ -8,6 +8,8 @@ function CartModal(props) {
         minus,
         handleBasketShow = Function.prototype,
         deleteProduct,
+        plusProduct,
+        minusProduct,
     } = props;
 
     const totalPrice = order.reduce((sum, el) => {
@@ -57,6 +59,8 @@ function CartModal(props) {
                             key={item.mainId}
                             {...item}
                             deleteProduct={deleteProduct}
+                            plusProduct={plusProduct}
+                            minusProduct={minusProduct}
                         />
                     ))
                 ) : (

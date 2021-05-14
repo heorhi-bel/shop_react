@@ -38,16 +38,6 @@ function Shop() {
     };
 
     const deleteProduct = (id) => {
-        // const itemIndex = order.findIndex(
-        //     (orderItem) => orderItem.mainId === id
-        // );
-
-        // if (itemIndex >= 0) {
-        //     let array = [...order].slice(0, itemIndex);
-        //     let arraySec = [...order].slice(itemIndex + 1);
-
-        //     setOrder([...array, ...arraySec]);
-        // }
         let newOrder = order.filter((el) => el.mainId !== id);
         setOrder(newOrder);
     };
@@ -57,16 +47,37 @@ function Shop() {
     };
 
     const plusProduct = (id) => {
-        console.log(id);
-        let foundObj = order.find((x) => x.mainId === id);
-        console.log(foundObj);
-        foundObj.quantity = foundObj.quantity + 1;
+        const newOrder = order.map((el) => {
+            if (el.mainId === id) {
+                const newQuantity = el.quantity + 1;
+                return {
+                    ...el,
+                    quantity: newQuantity,
+                };
+            } else {
+                return el;
+            }
+        });
+        setOrder(newOrder);
     };
     const minusProduct = (id) => {
-        console.log(id);
-        let foundObj = order.find((x) => x.mainId === id);
-        console.log(foundObj);
-        foundObj.quantity = foundObj.quantity - 1;
+        const newOrder = order.map((el) => {
+            if (el.mainId === id) {
+                const newQuantity = el.quantity - 1;
+
+                if (newQuantity <= 0) {
+                    deleteProduct(id);
+                    return el;
+                } else {
+                    return {
+                        ...el,
+                        quantity: newQuantity,
+                    };
+                }
+            }
+            return el;
+        });
+        setOrder(newOrder);
     };
 
     useEffect(function getGoods() {
@@ -89,6 +100,8 @@ function Shop() {
                     order={order}
                     handleBasketShow={handleBasketShow}
                     deleteProduct={deleteProduct}
+                    plusProduct={plusProduct}
+                    minusProduct={minusProduct}
                 />
             )}
 

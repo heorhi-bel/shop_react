@@ -7,12 +7,28 @@ function CartModalElement(props) {
         price,
         quantity,
         deleteProduct = Function.prototype,
+        plusProduct = Function.prototype,
+        minusProduct = Function.prototype,
     } = props;
     const [] = useState(true);
 
     return (
         <li className="collection-item">
-            {displayName} x{quantity} = {price.finalPrice}
+            {displayName}   
+            <button
+                className="btn-small red lighten-2"
+                onClick={() => plusProduct(mainId)}
+            >
+                +
+            </button>{" "}
+            x{quantity}{" "}
+            <button
+                className="btn-small red lighten-2"
+                onClick={() => minusProduct(mainId)}
+            >
+                -
+            </button>{" "}
+            = {price.finalPrice}
             <span className="secodary-content">
                 <i
                     className="material-icons cart-delete right"
